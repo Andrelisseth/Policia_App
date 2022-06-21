@@ -1,0 +1,49 @@
+﻿@model List<Policia_App.Models.Persona>
+
+@{
+}
+    <a class="btn btn-success" href="@Url.Action("Guardar","Persona")">Agregar Nuevo</a>
+    
+
+<table class="table table-striped" id="tablaEst">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+             <th>APELLIDO</th>
+             <th>DIRECCION</th>
+             <th>ACCIONES</th>
+            
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var iterar in Model)
+        {
+            <tr>
+                <td>@iterar.IdPersona  </td>
+                <td>@iterar.Nombre  </td>
+                <td>@iterar.Apellido  </td>
+                <td>@iterar.Direccion  </td>
+                @*El primer delete es para texto el segundo delte es la accion del controlador*@
+                <td>@Html.ActionLink("Editar","Load",new{id=@iterar.IdPersona},new{@class="btn btn-warning"})
+                    @Html.ActionLink("Eliminar","Delete",new{id=@iterar.IdPersona},new{@class="btn btn-danger"})
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
+@section scripts{
+
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+        var tabla = $('#tablaEst').DataTable();
+        }   
+        );
+    </script>
+
+}

@@ -1,0 +1,27 @@
+﻿@model Policia_App.Models.Persona
+
+@{
+}
+
+<a class="btn btn-success" href="@Url.Action("Index","Persona")">Regresar</a>
+ <br />
+  <br />
+<form asp-controller="Persona" asp-action="actu"> 
+    
+    <input type="hidden" asp-for="IdPersona" />
+    <label>NOMBRE</label>
+     <br />
+    <input type="text" asp-for="Nombre" />
+    <br />
+    <label>APELLIDO</label>
+     <br />
+    <input type="text" asp-for="Apellido" />
+    <br />
+    <label>DIRECCION</label>
+     <br />
+    <input type="text" asp-for="Direccion" />
+    <br />    
+    <br />
+    <button>Update</button>
+</form>
+
